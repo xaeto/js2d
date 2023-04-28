@@ -6,8 +6,8 @@ export default class Player extends Entity2D {
         if(position == null) {
             super(10, new Vec2(320/2 - 24, 0), 48);
         } else {
-            super(10, new Vec2(0, 0), 48);
-            // super(10, new Vec2(position.x, position.y), 48);
+            // super(10, new Vec2(0, 0), 48);
+            super(10, new Vec2(position.x, position.y), 48);
         }
         this.color = color;
         const el = document.createElement("div");
