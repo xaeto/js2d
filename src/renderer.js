@@ -23,11 +23,12 @@ export default class Renderer {
         if(!this.previous_timestamp){
             this.previous_timestamp = timestamp;
         }
-        const dt = (timestamp - this.previous_timestamp) / 10000;
+        const dt = (timestamp - this.previous_timestamp) / 1000;
         this.engine.update(dt);
         for(let obj of objects){
             obj.draw(this);
         }
-        setTimeout(requestAnimationFrame(this.loop.bind(this)), 1 / 30);
+        this.previous_timestamp = timestamp;
+        setTimeout(requestAnimationFrame(this.loop.bind(this)), 1000/30);
     }
 }

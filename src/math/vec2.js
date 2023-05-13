@@ -35,9 +35,6 @@ export default class Vec2 {
     }
 
     divide (val) {
-        if(val == undefined){
-            return new Vec2(0, 0);
-        }
         return new Vec2(
             this.x / val,
             this.y / val

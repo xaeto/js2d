@@ -1,4 +1,3 @@
-import Vec2 from "./src/math/vec2.js";
 import Player from "./src/models/player.js";
 import World from "./src/models/world.js";
 import PhysicsEngine from "./src/physics_engine.js";
@@ -14,16 +13,20 @@ const player = new Player();
 engine.addObject(player);
 
 window.onkeydown = function(evt) {
-    console.log(evt);
     if(evt.key ==  " ") {
         player.jump();
     }
     if(evt.key ==  "ArrowLeft") {
-        player.position.x -= 1;
+        player.moveLeft();
     }
     if(evt.key ==  "ArrowRight") {
-        player.position.x += 1;
+        player.moveRight();
     }
+}
+
+world_element.onclick = function(evt){
+    player.position.x = evt.clientX;
+    player.position.y = 380 - evt.clientY;
 }
 
 renderer.render();
